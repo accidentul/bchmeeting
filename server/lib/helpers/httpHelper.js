@@ -1,10 +1,9 @@
-exports.loginHelper = function(data)
-{
+exports.loginHelper = function (data) {
 	const html = `<!DOCTYPE html>
 	<html>
 		<head>
 			<meta charset='utf-8'>
-			<title>edumeet</title>
+			<title>BCH</title>
 		</head>
 		<body>
 			<script type='text/javascript'>
@@ -20,13 +19,12 @@ exports.loginHelper = function(data)
 	return html;
 };
 
-exports.logoutHelper = function()
-{
+exports.logoutHelper = function () {
 	const html = `<!DOCTYPE html>
 	<html>
 		<head>
 			<meta charset='utf-8'>
-			<title>edumeet</title>
+			<title>BCH</title>
 		</head>
 		<body>
 			<script type='text/javascript'>

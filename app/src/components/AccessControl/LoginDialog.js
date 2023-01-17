@@ -1,110 +1,109 @@
-import React from 'react';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import MuiDialogActions from '@material-ui/core/DialogActions';
+import MuiDialogContent from '@material-ui/core/DialogContent';
+import MuiDialogTitle from '@material-ui/core/DialogTitle';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import isElectron from 'is-electron';
 import PropTypes from 'prop-types';
-import { useIntl, FormattedMessage } from 'react-intl';
-import Dialog from '@material-ui/core/Dialog';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
+import React from 'react';
 import CookieConsent from 'react-cookie-consent';
-import MuiDialogTitle from '@material-ui/core/DialogTitle';
-import MuiDialogContent from '@material-ui/core/DialogContent';
-import MuiDialogActions from '@material-ui/core/DialogActions';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { config } from '../../config';
 
 const styles = (theme) =>
-	({
-		root :
+({
+	root:
+	{
+		display: 'flex',
+		width: '100%',
+		height: '100%',
+		backgroundColor: 'var(--background-color)',
+		backgroundImage: `url(${config.background})`,
+		backgroundAttachment: 'fixed',
+		backgroundPosition: 'center',
+		backgroundSize: 'cover',
+		backgroundRepeat: 'no-repeat'
+	},
+	dialogTitle:
+	{
+	},
+	dialogPaper:
+	{
+		width: '30vw',
+		padding: theme.spacing(2),
+		[theme.breakpoints.down('lg')]:
 		{
-			display              : 'flex',
-			width                : '100%',
-			height               : '100%',
-			backgroundColor      : 'var(--background-color)',
-			backgroundImage      : `url(${config.background})`,
-			backgroundAttachment : 'fixed',
-			backgroundPosition   : 'center',
-			backgroundSize       : 'cover',
-			backgroundRepeat     : 'no-repeat'
+			width: '40vw'
 		},
-		dialogTitle :
+		[theme.breakpoints.down('md')]:
 		{
+			width: '50vw'
 		},
-		dialogPaper :
+		[theme.breakpoints.down('sm')]:
 		{
-			width                          : '30vw',
-			padding                        : theme.spacing(2),
-			[theme.breakpoints.down('lg')] :
-			{
-				width : '40vw'
-			},
-			[theme.breakpoints.down('md')] :
-			{
-				width : '50vw'
-			},
-			[theme.breakpoints.down('sm')] :
-			{
-				width : '70vw'
-			},
-			[theme.breakpoints.down('xs')] :
-			{
-				width : '90vw'
-			}
+			width: '70vw'
 		},
-		logo :
+		[theme.breakpoints.down('xs')]:
 		{
-			display       : 'block',
-			paddingBottom : '1vh'
-		},
-		loginButton :
-		{
-			position : 'absolute',
-			right    : theme.spacing(2),
-			top      : theme.spacing(2),
-			padding  : 0
-		},
-		largeIcon :
-		{
-			fontSize : '2em'
-		},
-		largeAvatar :
-		{
-			width  : 50,
-			height : 50
-		},
-		green :
-		{
-			color : 'rgba(0, 153, 0, 1)'
+			width: '90vw'
 		}
-	});
+	},
+	logo:
+	{
+		display: 'block',
+		paddingBottom: '1vh'
+	},
+	loginButton:
+	{
+		position: 'absolute',
+		right: theme.spacing(2),
+		top: theme.spacing(2),
+		padding: 0
+	},
+	largeIcon:
+	{
+		fontSize: '2em'
+	},
+	largeAvatar:
+	{
+		width: 50,
+		height: 50
+	},
+	green:
+	{
+		color: 'rgba(0, 153, 0, 1)'
+	}
+});
 
 const DialogTitle = withStyles((theme) => ({
-	root :
+	root:
 	{
-		margin  : 0,
-		padding : theme.spacing(1)
+		margin: 0,
+		padding: theme.spacing(1)
 	}
 }))(MuiDialogTitle);
 
 const DialogContent = withStyles((theme) => ({
-	root :
+	root:
 	{
-		padding : theme.spacing(2)
+		padding: theme.spacing(2)
 	}
 }))(MuiDialogContent);
 
 const DialogActions = withStyles((theme) => ({
-	root :
+	root:
 	{
-		margin  : 0,
-		padding : theme.spacing(1)
+		margin: 0,
+		padding: theme.spacing(1)
 	}
 }))(MuiDialogActions);
 
 const ChooseRoom = ({
 	classes
-}) =>
-{
+}) => {
 	const intl = useIntl();
 
 	return (
@@ -112,12 +111,12 @@ const ChooseRoom = ({
 			<Dialog
 				open
 				classes={{
-					paper : classes.dialogPaper
+					paper: classes.dialogPaper
 				}}
 			>
 				<DialogTitle>
 
-					{ config.logo ?
+					{config.logo ?
 						<img alt='Logo' src={config.logo} /> :
 						<Typography variant='h5'> {config.title} </Typography>
 					}
@@ -132,8 +131,8 @@ const ChooseRoom = ({
 							autoFocus
 							id='username'
 							label={intl.formatMessage({
-								id             : 'label.username',
-								defaultMessage : 'Username'
+								id: 'label.username',
+								defaultMessage: 'Username'
 							})}
 							variant='outlined'
 							margin='normal'
@@ -144,8 +143,8 @@ const ChooseRoom = ({
 						<TextField
 							id='password'
 							label={intl.formatMessage({
-								id             : 'label.password',
-								defaultMessage : 'Password'
+								id: 'label.password',
+								defaultMessage: 'Password'
 							})}
 							variant='outlined'
 							margin='normal'
@@ -171,10 +170,10 @@ const ChooseRoom = ({
 					</DialogActions>
 				</form>
 
-				{ !isElectron() &&
+				{!isElectron() &&
 					<CookieConsent buttonText={intl.formatMessage({
-						id             : 'room.consentUnderstand',
-						defaultMessage : 'I understand'
+						id: 'room.consentUnderstand',
+						defaultMessage: 'I understand'
 					})}
 					>
 						<FormattedMessage
@@ -190,7 +189,7 @@ const ChooseRoom = ({
 
 ChooseRoom.propTypes =
 {
-	classes : PropTypes.object.isRequired
+	classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(ChooseRoom);

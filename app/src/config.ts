@@ -489,14 +489,14 @@ Setting 'play' to null disables the sound notification.
 	{
 		doc      : 'If not null, it shows the logo loaded from the specified URL, otherwise it shows the title.',
 		format   : 'url',
-		default  : 'images/logo.edumeet.svg',
+		default  : 'images/bch.svg',
 		nullable : true
 	},
 	title :
 	{
 		doc     : 'The title to show if the logo is not specified.',
 		format  : 'String',
-		default : 'edumeet'
+		default : 'Bch - Colaborativ ( CONTRALL FOCUS )'
 	},
 	infoTooltipText :
 	{
